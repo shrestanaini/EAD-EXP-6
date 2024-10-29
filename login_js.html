@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        .login-container {
+            max-width: 300px;
+            margin: 50px auto;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
+            padding: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        label {
+            font-size: 20px;
+            color: #000;
+        }
+        input {
+            padding: 8px;
+            text-align: center;
+        }
+        button {
+            padding: 10px;
+            background-color: aqua;
+            border: none;
+            cursor: pointer;
+        }
+        h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>LOGIN FORM</h2>
+    <div class="login-container">
+        <form id="loginform">
+            <label for="username">UserName</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+            <div id="message" class="error"></div>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('loginform').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('message');
+
+            errorMessage.textContent = ''; // Clear previous messages
+
+            // Validate input fields
+            if (!username || !password) {
+                errorMessage.textContent = "Both fields are required";
+            } else {
+                // Simulate a successful login
+                alert("Login Successful");
+                // Optionally, you could redirect or perform further actions here
+            }
+        });
+    </script>
+</body>
+</html>
